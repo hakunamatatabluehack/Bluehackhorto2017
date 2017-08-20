@@ -1,0 +1,434 @@
+[
+    {
+        "id": "fab043e7.efe83",
+        "type": "watson-conversation-v1",
+        "z": "441ef2e3.cf55cc",
+        "name": "Portal",
+        "workspaceid": "8f6abf67-b1d4-4ca7-9ad1-d51fe76bf0e4",
+        "multiuser": false,
+        "context": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 412.8571472167969,
+        "y": 236.99999618530273,
+        "wires": [
+            [
+                "99e41453.277ce8",
+                "dd604880.a3fd18"
+            ]
+        ]
+    },
+    {
+        "id": "99e41453.277ce8",
+        "type": "debug",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 572.4286308288574,
+        "y": 82.99998474121094,
+        "wires": []
+    },
+    {
+        "id": "dd604880.a3fd18",
+        "type": "switch",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "property": "payload.context.convID",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "saudacao",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "duvida",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "triagem",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "local",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 4,
+        "x": 553.8573188781738,
+        "y": 400.4285659790039,
+        "wires": [
+            [
+                "d508e979.eca1b8"
+            ],
+            [
+                "bd178d9f.b19d4"
+            ],
+            [
+                "880a1c0.5f675e8"
+            ],
+            [
+                "fd154e66.f6756"
+            ]
+        ]
+    },
+    {
+        "id": "c8b2eb01.9d07c8",
+        "type": "watson-conversation-v1",
+        "z": "441ef2e3.cf55cc",
+        "name": "dúvida",
+        "workspaceid": "a038e9c4-2695-44a9-9b97-bff620cba910",
+        "multiuser": false,
+        "context": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 981.4286308288574,
+        "y": 351.99998474121094,
+        "wires": [
+            [
+                "61f50925.5b0c08"
+            ]
+        ]
+    },
+    {
+        "id": "2445aac.9c9e456",
+        "type": "watson-conversation-v1",
+        "z": "441ef2e3.cf55cc",
+        "name": "triagem",
+        "workspaceid": "a9ae91c5-8244-45aa-bad8-3bf37874c731",
+        "multiuser": false,
+        "context": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 1000.4286308288574,
+        "y": 464.99998474121094,
+        "wires": [
+            [
+                "61f50925.5b0c08"
+            ]
+        ]
+    },
+    {
+        "id": "63796bb7.17e4b4",
+        "type": "watson-conversation-v1",
+        "z": "441ef2e3.cf55cc",
+        "name": "Localização",
+        "workspaceid": "87a91d21-b36e-463b-bff4-583c6852fb7e",
+        "multiuser": false,
+        "context": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 1007.4286308288574,
+        "y": 594.9999847412109,
+        "wires": [
+            [
+                "61f50925.5b0c08"
+            ]
+        ]
+    },
+    {
+        "id": "b3638bef.43af38",
+        "type": "debug",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 1379.142635345459,
+        "y": 400.42857933044434,
+        "wires": []
+    },
+    {
+        "id": "c89ccd14.9c09d",
+        "type": "watson-conversation-v1",
+        "z": "441ef2e3.cf55cc",
+        "name": "saudação",
+        "workspaceid": "3f75dfdd-0a10-42d7-bd1a-a4e3e0a7e1c9",
+        "multiuser": false,
+        "context": true,
+        "default-endpoint": true,
+        "service-endpoint": "https://gateway.watsonplatform.net/conversation/api",
+        "x": 984.4286308288574,
+        "y": 255.99998474121094,
+        "wires": [
+            [
+                "61f50925.5b0c08"
+            ]
+        ]
+    },
+    {
+        "id": "d508e979.eca1b8",
+        "type": "change",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.input.text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 769.4286766052246,
+        "y": 269.57141304016113,
+        "wires": [
+            [
+                "c89ccd14.9c09d"
+            ]
+        ]
+    },
+    {
+        "id": "bd178d9f.b19d4",
+        "type": "change",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.input.text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 786.1429252624512,
+        "y": 392.57140731811523,
+        "wires": [
+            [
+                "c8b2eb01.9d07c8"
+            ]
+        ]
+    },
+    {
+        "id": "880a1c0.5f675e8",
+        "type": "change",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.input.text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 783.8571434020996,
+        "y": 431.14282989501953,
+        "wires": [
+            [
+                "2445aac.9c9e456"
+            ]
+        ]
+    },
+    {
+        "id": "fd154e66.f6756",
+        "type": "change",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.input.text",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770.714282989502,
+        "y": 558.8571090698242,
+        "wires": [
+            [
+                "63796bb7.17e4b4"
+            ]
+        ]
+    },
+    {
+        "id": "220fbd94.b08bf2",
+        "type": "inject",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "topic": "",
+        "payload": "Ola",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 207.57147598266602,
+        "y": 134.28570175170898,
+        "wires": [
+            [
+                "fab043e7.efe83"
+            ]
+        ]
+    },
+    {
+        "id": "e7cb2574.79d448",
+        "type": "http in",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "url": "/my/bot",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 128.0000762939453,
+        "y": 316.2857151031494,
+        "wires": [
+            [
+                "873387fe.e90738"
+            ]
+        ]
+    },
+    {
+        "id": "e2156bb3.7da248",
+        "type": "http response",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1347.9992446899414,
+        "y": 266.28563117980957,
+        "wires": []
+    },
+    {
+        "id": "61f50925.5b0c08",
+        "type": "function",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "func": "msg.payload=\n[{\"text\": msg.payload.output.text[0]}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1197.9999198913574,
+        "y": 402.00002670288086,
+        "wires": [
+            [
+                "b3638bef.43af38",
+                "e2156bb3.7da248"
+            ]
+        ]
+    },
+    {
+        "id": "873387fe.e90738",
+        "type": "change",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "req.query.mensagem",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 303.71420097351074,
+        "y": 367.7142210006714,
+        "wires": [
+            [
+                "fab043e7.efe83",
+                "56c85da0.d73534"
+            ]
+        ]
+    },
+    {
+        "id": "56c85da0.d73534",
+        "type": "debug",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 470.8572022574285,
+        "y": 649.142841884068,
+        "wires": []
+    },
+    {
+        "id": "a0f0c873.cce668",
+        "type": "http in",
+        "z": "441ef2e3.cf55cc",
+        "name": "Validate webhooks",
+        "url": "/chatbot",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 789.4283905029297,
+        "y": 120.57137107849121,
+        "wires": [
+            [
+                "25afff0e.d5e6a",
+                "869512eb.812e9"
+            ]
+        ]
+    },
+    {
+        "id": "de13c112.97f5d",
+        "type": "http response",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1243.5714874267578,
+        "y": 131.5714111328125,
+        "wires": []
+    },
+    {
+        "id": "869512eb.812e9",
+        "type": "debug",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1040.8570251464844,
+        "y": 99.14282608032227,
+        "wires": []
+    },
+    {
+        "id": "25afff0e.d5e6a",
+        "type": "function",
+        "z": "441ef2e3.cf55cc",
+        "name": "",
+        "func": "var mode = '';\nvar vtoken = '';\nvar challenge = '';\nif (msg.payload['hub.mode'])\n{\n   mode = msg.payload['hub.mode'];\n}\nif (msg.payload['hub.verify_token'])\n{\n   vtoken = msg.payload['hub.verify_token'];\n}\nif (msg.payload['hub.challenge'])\n{\n   challenge = msg.payload['hub.challenge'];\n}\nif ('subscribe' == mode &&\n 'ThisIsMyPersonalVerificationTokenThatOnlyIKnowAbout' == vtoken) {\n   msg.payload = challenge;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1027.9999198913574,
+        "y": 180.57138061523438,
+        "wires": [
+            [
+                "de13c112.97f5d"
+            ]
+        ]
+    }
+]
